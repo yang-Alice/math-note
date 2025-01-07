@@ -58,4 +58,48 @@ An r.v. has a continuous distribution if its CDF(cumulative distribution functio
 
 **Definition** (Probability density function). 概率密度函数
 
-The probability density function (PDF) of a continuous r.v. $$X$$ is the function $$f_X$$ given by $$f_X(x) = \frac{d}{dx}F_X(x)$$, where $$F_X$$ is the CDF of $$X$$. Note that $$f_X(x)$$ is positive if $$x$$ is in the support of $$X$$, and 0 otherwise.
+For a continuous r.v. X with CDF $$F$$, the probability density function (PDF) of $$X$$ is the derivative $$f$$ of the CDF, given by $$f(x) = F'(x)$$ The support of $$X$$, and of its distribution, is the set of all $$x$$ where $$f(x) > 0$$.
+
+对于随机变量$$X$$，若存在一个非负函数$$f_X$$，使得
+$$P(X \in B) = \int_B f_X(x)\mathrm{d}x$$
+对每一个实数轴上集合$$B$$都成立，则称$$X$$为连续的随机变量，函数$$f_X$$就称为$$X$$的概率密度函数，或者简称PDF。
+
+注：$$P(X \in B) = \int_B f_X(x)\mathrm{d}x$$可理解为黎曼积分
+ 
+**Proposition** (PDF to CDF). 
+Let $$X$$ be a continuous r.v. with PDF $$f$$. Then the CDF of $$X$$ is given by
+$$
+ F(x) = \int_{-\infty}^x f(t)dt
+$$
+
+_Proof_ : 
+By defnition of PDF, $$F$$ is an antiderivative of $$f$$. So by the fundamental theorem of calculus, 
+$$
+\int_{-\infty}^x f(t)dt= F(x) - F(-\infty) = F(x) - 0 = F(x)
+$$
+
+疑问：为什么连续随机变量取值可以是无穷大
+
+## Expectation 期望
+**Definition** (Expectation of a continuous r.v.). 
+
+The expected value (also called the expectation or mean) of a continuous r.v. $$X$$ with PDF $$f$$ is
+$$E(X) = \int_{-\infty}^{\infty} xf(x)dx$$ 
+
+**Theorem** (Expectation of a function of a r.v.).
+
+If $$X$$ is a continuous r.v. with PDF $$f$$ and $$g$$ is a function from $$R$$ to $$R$$, then
+$$E(g(X)) =\int_{-\infty}^{\infty}g(x)f(x)dx$$
+
+
+##  Joint distributions
+**Definition** (Joint CDF). 
+The joint CDF of r.v.s $$X$$ and $$Y$$ is the function $$F_{X,Y}$$ given by
+$$F_{X,Y}(x,y) = P(X\le x , Y \le y)$$
+ The joint CDF of $$n$$ r.v.s is defined analogously.
+
+
+**Definition** (Joint PMF).
+The joint PMF of discrete r.v.s $$X$$ and $$Y$$ is the function $$p_{X,Y}$$ given by
+$$p_{X,Y}(x,y) = P(X = x,Y = y)$$
+ The joint PMF of $$n$$ discrete r.v.s is de ned analogously.
